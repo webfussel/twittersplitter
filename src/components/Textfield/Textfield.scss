@@ -1,0 +1,22 @@
+.Textfield {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  > .Button {
+    margin: {
+      top: var(--spacing);
+    }
+  }
+
+  > textarea {
+    font-size: 1.2rem;
+    width: 100%;
+    height: 40em;
+    padding: var(--spacing);
+    resize: none;
+    outline: none;
+    border-radius: var(--border-radius);
+  }
+}

@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700');
+@import url('https://fonts.googleapis.com/css2?family=Odibee+Sans&display=swap');
+
+:root {
+  --color-bg: #16212c;
+  --color-bg-contrast: #eee;
+  --color-twitter: #1ca0f2;
+  --color-twitter-dark: #06476f;
+  --spacing: 15px;
+  --border-radius: 5px;
+  --transition: 250ms;
+}
+
+*, *:before, *:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100vh;
+  min-width: 100vw;
+  font-family: 'Nunito', sans-serif;
+  background: var(--color-bg);
+  color: var(--color-bg-contrast);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Odibee Sans', sans-serif;
+}
+
+h1 {
+  font-size: 100px;
+}

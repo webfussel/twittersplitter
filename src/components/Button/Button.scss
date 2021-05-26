@@ -1,0 +1,13 @@
+.Button {
+  all: unset;
+  border-radius: var(--border-radius);
+  background: var(--color-twitter);
+  padding: 5px 15px;
+  transition: var(--transition);
+  cursor: pointer;
+  font-size: 1.3em;
+
+  &:hover {
+    background: var(--color-twitter-dark);
+  }
+}
