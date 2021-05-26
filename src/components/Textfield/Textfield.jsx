@@ -1,11 +1,11 @@
 import './Textfield.scss'
 import Button from "../Button/Button";
 
-const Textfield = () => {
+const Textfield = ({change = () => {}, click = () => {}}) => {
     return (
         <section className="Textfield">
-            <textarea defaultValue="asdijasldaskldj" />
-            <Button click={() => {console.log('theadify now')}}>Threadify</Button>
+            <textarea onChange={event => change(event.target.value)} />
+            <Button click={click}>Threadify</Button>
         </section>
     )
 }

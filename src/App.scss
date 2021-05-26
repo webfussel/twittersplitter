@@ -3,6 +3,7 @@
   grid-template-areas:
           "header header"
           "textfield cards";
+  grid-template-columns: 1fr 1fr;
 
   > * {
     padding: var(--spacing) 25px;
