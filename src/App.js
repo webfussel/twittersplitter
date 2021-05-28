@@ -17,7 +17,7 @@ function App() {
             .split(commands.nextTweet)
 
         for (let i = 0; i < tweetSplit.length - 1; i++) {
-            tweetSplit[i] = `${tweetSplit[i].replace(/\n$/, '')} ${commands.nextTweet}`
+            tweetSplit[i] = `${tweetSplit[i].replace(/(\n)*$/, '')} ${commands.nextTweet}`
         }
 
         const textSplit = tweetSplit.join(' ')
@@ -46,7 +46,7 @@ function App() {
         cards.push(currentCard.join(' '))
 
         for (let i = 0; i < cards.length; i++) {
-            cards[i] = cards[i].replace(/^(\n)/, '').replace(/(\n)$/, '')
+            cards[i] = cards[i].replace(/^(\n)*/, '').replace(/(\n)*$/, '')
         }
 
         setCards(cards)
