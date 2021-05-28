@@ -14,6 +14,7 @@
   }
 
   > .CardContainer {
+    grid-area: cards;
     > .Card:not(:last-child) {
       margin: {
         bottom: var(--spacing)
@@ -43,6 +44,19 @@
       ul {
         list-style: inside;
       }
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .App {
+    grid-template-areas: unset;
+    grid-template-columns: 1fr;
+
+    > header,
+    > .Textfield,
+    > .CardContainer {
+      grid-area: unset;
     }
   }
 }
