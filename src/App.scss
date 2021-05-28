@@ -43,6 +43,12 @@
 
       ul {
         list-style: inside;
+
+        & ul {
+          margin: {
+            left: var(--spacing);
+          }
+        }
       }
     }
   }

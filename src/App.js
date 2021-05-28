@@ -5,11 +5,22 @@ import {useState} from "react";
 
 function App() {
 
+    const commands = {
+        nextTweet: '!nextTweet'
+    }
+
     const maximumTweetLength = 270
     const [cards, setCards] = useState([])
 
     const splitTextToCards = text => {
-        const textSplit = text
+        const tweetSplit = text
+            .split(commands.nextTweet)
+
+        for (let i = 0; i < tweetSplit.length - 1; i++) {
+            tweetSplit[i] = `${tweetSplit[i].replace(/\n$/, '')} ${commands.nextTweet}`
+        }
+
+        const textSplit = tweetSplit.join(' ')
             .split(' ')
             .filter(t => t.length > 0)
             .reverse()
@@ -18,19 +29,26 @@ function App() {
         let currentCard = []
 
         while (textSplit.length > 0) {
-            const nextPart = textSplit.pop()
+            const nextPart = textSplit.pop().replace(/!newLine/g, '\n')
             const currentCardLength = currentCard.join(' ').length
             const nextPartLength = nextPart.length || 0
 
-            if (currentCardLength + nextPartLength >= maximumTweetLength) {
+            if (currentCardLength + nextPartLength >= maximumTweetLength || nextPart === commands.nextTweet) {
                 cards.push(currentCard.join(' '))
                 currentCard = []
             }
 
-            currentCard.push(nextPart)
+            if (nextPart !== commands.nextTweet) {
+                currentCard.push(nextPart)
+            }
         }
 
         cards.push(currentCard.join(' '))
+
+        for (let i = 0; i < cards.length; i++) {
+            cards[i] = cards[i].replace(/^(\n)/, '').replace(/(\n)$/, '')
+        }
+
         setCards(cards)
     }
 
@@ -46,6 +64,17 @@ function App() {
                     <ul>
                         <li>Implement Twitter API to directly post threads</li>
                         <li>Remove ugliness</li>
+                    </ul>
+                </div>
+                <div>
+                    <span>Features:</span>
+                    <ul>
+                        <li>
+                            <span>!nextTweet</span>
+                            <ul>
+                                <li>Forces the text to start a new Tweet at this place</li>
+                            </ul>
+                        </li>
                     </ul>
                 </div>
             </header>
