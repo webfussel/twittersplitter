@@ -46,7 +46,7 @@ function App() {
             </header>
             <Textfield change={change} click={splitTextToCards}/>
             <section className='CardContainer'>
-                {cards.map((card, index) => <Card pageCurr={index} pageTotal={cards.length}>{card}</Card>)}
+                {cards.map((card, index) => <Card key={index} pageCurr={index} pageTotal={cards.length}>{card}</Card>)}
             </section>
         </div>
     );
