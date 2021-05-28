@@ -30,11 +30,13 @@ const Card = ({children, pageCurr, pageTotal}) => {
 
     return (
         <article className="Card">
-            <p>{text}</p>
-            <div>
+            <main>
+                {text}
+            </main>
+            <footer>
                 <small>{text.length} Characters</small>
                 <Button click={copy}>{buttonText}</Button>
-            </div>
+            </footer>
         </article>
     )
 }
