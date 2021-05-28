@@ -34,5 +34,15 @@
         font-size: 0.3em;
       }
     }
+
+    div {
+      margin: {
+        top: var(--spacing);
+      }
+
+      ul {
+        list-style: inside;
+      }
+    }
   }
 }

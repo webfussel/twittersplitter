@@ -5,11 +5,10 @@ import {useState} from "react";
 
 function App() {
 
-    const maximumTweetLength = 260
+    const maximumTweetLength = 270
     const [cards, setCards] = useState([])
-    const [text, setText] = useState('')
 
-    const splitTextToCards = () => {
+    const splitTextToCards = text => {
         const textSplit = text
             .split(' ')
             .filter(t => t.length > 0)
@@ -19,22 +18,21 @@ function App() {
         let currentCard = []
 
         while (textSplit.length > 0) {
+            const nextPart = textSplit.pop()
             const currentCardLength = currentCard.join(' ').length
-            const nextPartLength = textSplit[textSplit.length - 1]?.length || 0
+            const nextPartLength = nextPart.length || 0
 
             if (currentCardLength + nextPartLength >= maximumTweetLength) {
                 cards.push(currentCard.join(' '))
                 currentCard = []
             }
 
-            currentCard.push(textSplit.pop())
+            currentCard.push(nextPart)
         }
 
         cards.push(currentCard.join(' '))
         setCards(cards)
     }
-
-    const change = textFieldValue => setText(textFieldValue)
 
     return (
         <div className="App">
@@ -43,8 +41,15 @@ function App() {
                     <span>TwitterSplitter</span>
                     <small>Split your threads properly</small>
                 </h1>
+                <div>
+                    <span>Next steps:</span>
+                    <ul>
+                        <li>Implement Twitter API to directly post threads</li>
+                        <li>Remove ugliness</li>
+                    </ul>
+                </div>
             </header>
-            <Textfield change={change} click={splitTextToCards}/>
+            <Textfield click={splitTextToCards}/>
             <section className='CardContainer'>
                 {cards.map((card, index) => <Card key={index} pageCurr={index} pageTotal={cards.length}>{card}</Card>)}
             </section>

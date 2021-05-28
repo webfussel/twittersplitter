@@ -6,4 +6,20 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+
+  div {
+    margin: {
+      top: calc(var(--spacing) * 2);
+    }
+
+    small {
+      margin: {
+        right: var(--spacing);
+      }
+    }
+  }
+
+  p {
+    width: 100%;
+  }
 }
