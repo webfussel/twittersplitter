@@ -7,6 +7,9 @@
   cursor: pointer;
   font-size: 1.3em;
   color: var(--color-dark-contrast);
+  display: flex;
+  gap: var(--spacing);
+  align-items: center;
 
   &:hover {
     background: var(--color-twitter-dark);

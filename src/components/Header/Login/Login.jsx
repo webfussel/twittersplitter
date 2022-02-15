@@ -1,8 +1,8 @@
-import './Login.scss'
 import {signIn} from "../../../services/Authentication";
 import {useUserStore} from "../../../store/UserStore";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTwitter } from '@fortawesome/free-brands-svg-icons'
+import Button from "../../Button/Button";
 
 const Login = () => {
     const setAll = useUserStore(state => state.setAll);
@@ -17,7 +17,10 @@ const Login = () => {
     }
 
     return (
-        <button className="Login" onClick={login}><FontAwesomeIcon icon={faTwitter} />Login with Twitter</button>
+        <Button click={login}>
+            <FontAwesomeIcon icon={faTwitter} />
+            <span>Login with Twitter</span>
+        </Button>
     )
 }
 
