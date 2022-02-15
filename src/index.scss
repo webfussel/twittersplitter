@@ -1,9 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700');
-@import url('https://fonts.googleapis.com/css2?family=Odibee+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto+Condensed:wght@300&display=swap');
 
 :root {
-  --color-bg: #16212c;
-  --color-bg-contrast: #eee;
+  --color-dark: #16212c;
+  --color-dark-contrast: #eee;
   --color-twitter: #1ca0f2;
   --color-twitter-dark: #06476f;
   --spacing: 15px;
@@ -21,9 +20,9 @@ html,
 body {
   min-height: 100vh;
   min-width: 100%;
-  font-family: 'Nunito', sans-serif;
-  background: var(--color-bg);
-  color: var(--color-bg-contrast);
+  font-family: 'Open Sans', sans-serif;
+  background: var(--color-dark);
+  color: var(--color-dark-contrast);
 }
 
 h1,
@@ -32,9 +31,5 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Odibee Sans', sans-serif;
-}
-
-h1 {
-  font-size: 100px;
+  font-family: 'Roboto Condensed', sans-serif;
 }

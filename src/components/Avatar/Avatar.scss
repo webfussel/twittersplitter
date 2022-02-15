@@ -1,0 +1,43 @@
+.Avatar {
+  > div {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing);
+    position: relative;
+    cursor: pointer;
+
+    img {
+      height: 50px;
+      border-radius: 100%;
+    }
+  }
+
+  > ul {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+    list-style: none;
+
+    position: absolute;
+    background: white;
+    border-radius: var(--border-radius);
+
+    &.open {
+      max-height: 300px;
+    }
+
+    > li {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing);
+      background: white;
+      transition: background 0.3s ease-in-out;
+      cursor: pointer;
+      padding: var(--spacing);
+
+      &:hover {
+        background: #c7c7c7;
+      }
+    }
+  }
+}

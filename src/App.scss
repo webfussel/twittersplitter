@@ -1,53 +1,16 @@
 .App {
-  display: grid;
-  grid-template-areas:
-          "header header"
-          "textfield cards";
-  grid-template-columns: 1fr 1fr;
+  main {
+    display: flex;
 
-  > * {
-    padding: var(--spacing) 25px;
-  }
-
-  > .Textfield {
-    grid-area: textfield;
-  }
-
-  > .CardContainer {
-    grid-area: cards;
-    > .Card:not(:last-child) {
-      margin: {
-        bottom: var(--spacing)
-      }
-    }
-  }
-
-  header {
-    width: 100%;
-    grid-area: header;
-
-    h1 {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-
-      small {
-        font-size: 0.3em;
-      }
+    > * {
+      padding: var(--spacing) 25px;
+      flex: 0 0 50%;
     }
 
-    div {
-      margin: {
-        top: var(--spacing);
-      }
-
-      ul {
-        list-style: inside;
-
-        & ul {
-          margin: {
-            left: var(--spacing);
-          }
+    > .CardContainer {
+      > .Card:not(:last-child) {
+        margin: {
+          bottom: var(--spacing)
         }
       }
     }
@@ -56,13 +19,8 @@
 
 @media (max-width: 1000px) {
   .App {
-    grid-template-areas: unset;
-    grid-template-columns: 1fr;
-
-    > header,
-    > .Textfield,
-    > .CardContainer {
-      grid-area: unset;
+    main {
+      flex-direction: column;
     }
   }
 }

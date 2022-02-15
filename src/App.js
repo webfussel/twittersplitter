@@ -1,9 +1,19 @@
 import './App.scss';
-import Textfield from "./components/Textfield/Textfield";
+import TextField from "./components/TextField/TextField";
 import Card from "./components/Card/Card";
 import {useState} from "react";
+import Header from "./components/Header/Header";
+import {initializeApp} from 'firebase/app';
 
 function App() {
+    const firebaseConfig = {
+        apiKey: "AIzaSyCWVrxRm1gIgK4Xr4vRNjyHug2spyY1its",
+        authDomain: "fiole-ee4ee.firebaseapp.com",
+        projectId: "fiole-ee4ee",
+        messagingSenderId: "538963955041",
+        appId: "1:538963955041:web:34983d812413f6a9dcc920"
+    };
+    initializeApp(firebaseConfig);
 
     const commands = {
         nextTweet: '!nextTweet'
@@ -54,11 +64,8 @@ function App() {
 
     return (
         <div className="App">
-            <header>
-                <h1>
-                    <span>TwitterSplitter</span>
-                    <small>Split your threads properly</small>
-                </h1>
+            <Header/>
+            <aside>
                 <div>
                     <span>Next steps:</span>
                     <ul>
@@ -77,11 +84,14 @@ function App() {
                         </li>
                     </ul>
                 </div>
-            </header>
-            <Textfield click={splitTextToCards}/>
-            <section className='CardContainer'>
-                {cards.map((card, index) => <Card key={index} pageCurr={index} pageTotal={cards.length}>{card}</Card>)}
-            </section>
+            </aside>
+            <main>
+                <TextField click={splitTextToCards}/>
+                <section className='CardContainer'>
+                    {cards.map((card, index) => <Card key={index} pageCurr={index}
+                                                      pageTotal={cards.length}>{card}</Card>)}
+                </section>
+            </main>
         </div>
     );
 

@@ -1,8 +1,8 @@
-import './Textfield.scss'
+import './TextField.scss'
 import Button from "../Button/Button";
 import {useState} from 'react'
 
-const Textfield = ({click = () => {}}) => {
+const TextField = ({click = () => {}}) => {
 
     const [length, setLength] = useState(0)
     const [text, setText] = useState('')
@@ -13,7 +13,7 @@ const Textfield = ({click = () => {}}) => {
     }
 
     return (
-        <section className="Textfield">
+        <section className="TextField">
             <textarea onChange={event => calculate(event.target.value)} />
             <small>{length} Characters</small>
             <Button click={() => click(text)}>Threadify</Button>
@@ -21,4 +21,4 @@ const Textfield = ({click = () => {}}) => {
     )
 }
 
-export default Textfield
+export default TextField
