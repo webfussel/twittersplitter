@@ -19,7 +19,7 @@ function App() {
         nextTweet: '!nextTweet'
     }
 
-    const maximumTweetLength = 270
+    const maximumTweetLength = 265
     const [cards, setCards] = useState([])
 
     const splitTextToCards = text => {
